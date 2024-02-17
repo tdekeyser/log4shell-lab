@@ -86,7 +86,7 @@ id
 uid=0(root) gid=0(root) groups=0(root)
 ```
 
-### Manual exploit
+## Manual exploit
 
 Prepare a malicious LDAP server for JNDI injection attacks, for example [rogue-jndi](https://github.com/veracode-research/rogue-jndi). The Java version used to build the project does not need to correspond to the version running the vulnerable application.
 
@@ -143,9 +143,8 @@ We get a shell connection into the Docker container.
 
 This tutorial, including all code and documentation, is provided for educational and research purposes only. It aims to enhance understanding of cybersecurity vulnerabilities, defensive strategies, and the importance of maintaining secure systems. The demonstration of the Log4Shell vulnerability is intended to inform developers, security professionals, and educational institutions about the risks and mitigation techniques related to this and similar vulnerabilities.
 
----
+## Resources
 
-Resources:
 - https://github.com/pentesterland/Log4Shell
 - https://infosecwriteups.com/log4j-zero-day-vulnerability-exploitation-detection-mitigation-9667908857b4
 - https://github.com/Cyb3rWard0g/log4jshell-lab
