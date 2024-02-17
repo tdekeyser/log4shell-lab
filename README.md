@@ -1,7 +1,7 @@
 
 # Log4Shell lab
 
-The _Log4Shell exploit_ targets a vulnerability in the Apache Log4j logging library, allowing remote code execution by manipulating log messages. Specifically, the exploit involves the use of a malicious LDAP server to inject arbitrary code into a vulnerable Java application via JNDI lookups.
+The _Log4Shell exploit_ (CVE-2021-44832) targets a vulnerability in the Apache Log4j logging library, allowing remote code execution by manipulating log messages. Specifically, the exploit involves the use of a malicious LDAP server to inject arbitrary code into a vulnerable Java application via JNDI lookups.
 
 Log4j uses Java Naming and Directory Interface (JNDI) to enable dynamic logging configuration based on resources located through naming and directory services. It allows log messages to include lookup patterns that can retrieve data from various sources, such as LDAP or DNS.
 
