@@ -14,14 +14,14 @@ public class LoginController {
     private static final Logger logger = LogManager.getLogger(LoginController.class);
 
     @GetMapping("/")
-    public String login() {
+    public String home(@RequestHeader("User-Agent") String userAgent) {
+        logger.info("Device access: {}", userAgent);
+
         return "login";
     }
 
     @PostMapping("/login")
-    public String login(@RequestHeader("User-Agent") String userAgent, @RequestParam String username) {
-        logger.info("Request from {}", userAgent);
-
+    public String login(@RequestParam String username) {
         if (username != "admin") {
             logger.error("Unauthorized username '{}' tried logging in", username);
         }
