@@ -1,4 +1,4 @@
 FROM openjdk:11-slim
-COPY build/libs/victim-0.0.1-SNAPSHOT.jar /victim.jar
+COPY build/libs/vulnerable-app-0.0.1-SNAPSHOT.jar /vulnerable-app.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/victim.jar"]
+ENTRYPOINT ["java", "-jar", "/vulnerable-app.jar"]
