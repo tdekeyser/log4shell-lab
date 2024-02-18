@@ -9,6 +9,8 @@ When a user input or a specific HTTP header (like `User-Agent`) that contains a 
 
 The payload is a Java gadget chain that leverages a Java deserialisation vulnerability. The gadget chain involves invoking methods on serialised objects that execute arbitrary code upon deserialisation, leveraging existing classes in the application's classpath to bypass security checks and gain remote code execution. For more information on choosing which gadget to use to effectively gain code execution on the victim, see [here](https://www.veracode.com/blog/research/exploiting-jndi-injections-java).
 
+![](img/log4shell_attack.png)
+
 ## Vulnerability fix
 
 The vulnerability is addressed in Log4j version 2.17.1 and later. As reported by [NIST](https://nvd.nist.gov/vuln/detail/CVE-2021-44832), Apache Log4j (`log4j-core`) versions 2.0-beta9 to 2.14.1 are vulnerable. Avoid using any of these versions explicitly, or as a _transitive dependency from other packages_ such as Spring Boot.
