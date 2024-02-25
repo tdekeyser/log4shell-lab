@@ -13,7 +13,7 @@ The payload is a Java gadget chain that leverages a Java deserialisation vulnera
 
 ## Vulnerability fix
 
-The vulnerability is addressed in Log4j version 2.17.1 and later. As reported by [NIST](https://nvd.nist.gov/vuln/detail/CVE-2021-44832), Apache Log4j (`log4j-core`) versions 2.0-beta9 to 2.14.1 are vulnerable. Avoid using any of these versions explicitly, or as a _transitive dependency from other packages_ such as Spring Boot.
+The vulnerability is addressed in `log4j-core` version 2.16.0 and later. As reported by [NIST](https://nvd.nist.gov/vuln/detail/CVE-2021-44228), Apache Log4j2 2.0-beta9 through 2.15.0 (excluding security releases) are vulnerable. Avoid using any of these versions explicitly, or as a _transitive dependency from other packages_.
 
 For applications that cannot be immediately updated, modify the Log4j configuration to disable JNDI lookups. This can be achieved by setting the system property `log4j2.formatMsgNoLookups` to `true` or by removing the JNDI lookup class from the classpath.
 
@@ -21,10 +21,16 @@ The vulnerability is independent of Java versions, so any Java runtime that uses
 
 ## Lab
 
-Package the vulnerable application with Gradle and run it in a Docker container.
+Package the vulnerable application with Gradle.
 
 ```bash
-tom@MacBook:~/workspace/security/log4shell-lab# docker-compose up
+tom@MacBook:~/log4shell-lab/vulnerable-app# ./gradlew bootJar
+```
+
+Run it in a Docker container.
+
+```bash
+tom@MacBook:~/log4shell-lab# docker-compose up
 ```
 
 We can verify that the application is vulnerable to CVE-2021-44832 by including the lookup string `${java:os}` in the login page at `http://localhost:8080`.
