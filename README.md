@@ -13,7 +13,7 @@ The payload is a Java gadget chain that leverages a Java deserialisation vulnera
 
 ## Vulnerability fix
 
-The vulnerability is addressed in `log4j-core` version 2.16.0 and later. As reported by [NIST](https://nvd.nist.gov/vuln/detail/CVE-2021-44228), Apache Log4j2 2.0-beta9 through 2.15.0 (excluding security releases) are vulnerable. Avoid using any of these versions explicitly, or as a _transitive dependency from other packages_.
+As reported by [NIST](https://nvd.nist.gov/vuln/detail/CVE-2021-44228), Apache Log4j2 2.0-beta9 through 2.15.0 (excluding security releases) are vulnerable. Avoid using any of these versions explicitly, or as a _transitive dependency from other packages_. The vulnerability is addressed in `log4j-core` version 2.16.0 and later.
 
 For applications that cannot be immediately updated, modify the Log4j configuration to disable JNDI lookups. This can be achieved by setting the system property `log4j2.formatMsgNoLookups` to `true` or by removing the JNDI lookup class from the classpath.
 
