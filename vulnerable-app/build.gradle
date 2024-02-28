@@ -15,6 +15,12 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    compileClasspath {
+        resolutionStrategy.activateDependencyLocking()
+    }
+}
+
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-thymeleaf') {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
@@ -26,11 +32,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-log4j2' // Vulnerable version
 //    implementation 'org.apache.logging.log4j:log4j-core:2.14.1' // Vulnerable version
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
 }
 
 tasks.named('test') {
     useJUnitPlatform()
 }
-
-def void exclude(LinkedHashMap<String, String> stringStringLinkedHashMap) {}
